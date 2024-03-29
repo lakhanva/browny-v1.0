@@ -1121,20 +1121,23 @@
 			let name = document.getElementById("name").value;
 			let email = document.getElementById("email").value;
 			let comment = document.getElementById("comment").value;
-			emailjs.send("service_a6z4pdq", "template_qi5j4rc", {
-				from_name: name,
-				to_name: "Lakhan Vaishnav",
-				message: comment,
-				reply_to: email,
-			}).then(
-				(response) => {
-					alert('Mail Sent Successfully!', response.status, response.text);
-					document.getElementById("contactUsForm").reset();
-				},
-				(error) => {
-					alert('OOPS!! Something went Wrong.', error);
-				},
-			);;
+			if (name.trim() != "" && email.trim() != "" && comment.trim() != "") {
+				emailjs.send("service_a6z4pdq", "template_qi5j4rc", {
+					from_name: name,
+					to_name: "Lakhan Vaishnav",
+					message: comment,
+					reply_to: email,
+				}).then(
+					(response) => {
+						alert('Mail Sent Successfully!', response.status, response.text);
+						document.getElementById("contactUsForm").reset();
+					},
+					(error) => {
+						alert('OOPS!! Something went Wrong.', error);
+					},
+				);;
+			}
+
 		}
 
 	</script>
