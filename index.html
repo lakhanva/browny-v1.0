@@ -247,10 +247,21 @@
 				left: -25px;
 			}
 		}
-		.sticky-wrapper{
-			height:0px!important;
+
+		.sticky-wrapper {
+			height: 0px !important;
 		}
 	</style>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+	</script>
+	<script type="text/javascript">
+		(function () {
+			emailjs.init({
+				publicKey: "l0Y8eih4u9k2PDPlN",
+			});
+		})();
+	</script>
 </head>
 
 <body>
@@ -1003,7 +1014,7 @@
 	</section><!--/.portfolio-->
 	<!--portfolio end -->
 
-	
+
 	<!--clients end -->
 
 	<!--contact start -->
@@ -1051,7 +1062,8 @@
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="single-contact-btn">
-												<a class="contact-btn" href="#" role="button">submit</a>
+												<button class="btn btn-lg btn-outline-success" type="button"
+													onclick="submitMyForm();">submit</button>
 											</div><!--/.single-single-contact-btn-->
 										</div><!--/.col-->
 									</div><!--/.row-->
@@ -1104,6 +1116,25 @@
 	</section><!--/.contact-->
 	<!--contact end -->
 
+	<script>
+		function submitMyForm() {
+			let name = document.getElementById("name").value;
+			let email = document.getElementById("email").value;
+			let comment = document.getElementById("comment").value;
+			try {
+				emailjs.send("service_a6z4pdq", "template_qi5j4rc", {
+					from_name: name,
+					to_name: "Lakhan Vaishnav",
+					message: comment,
+					reply_to: email,
+				});
+				alert("Message Sent Successfully!");
+			}catch(e){
+				alert("OOPS!!! Some Error Occured!");
+			}
+		}
+
+	</script>
 	<!--footer-copyright start-->
 	<footer id="footer-copyright" class="footer-copyright">
 		<div class="container">
