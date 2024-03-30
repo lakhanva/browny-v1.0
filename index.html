@@ -2,6 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
+
 	<!-- meta data -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -262,6 +263,8 @@
 			});
 		})();
 	</script>
+	<script src="https://cdn.tiny.cloud/1/knt3bn88i8z9k68oxfdw3dfgsgr5fmy1ogwp0me9q7vr7d63/tinymce/7/tinymce.min.js"
+		referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -1123,9 +1126,9 @@
 		function submitMyForm() {
 			let name = document.getElementById("name").value;
 			let email = document.getElementById("email").value;
-			let comment = document.getElementById("comment").value;
+			var comment = tinymce.get("comment").getContent();
 			if (name.trim() != "" && email.trim() != "" && comment.trim() != "") {
-				emailjs.send("service_a6z4pdq", "template_qi5j4rc", {
+				emailjs.send("service_a6z4pdq", "template_flieo0e", {
 					from_name: name,
 					to_name: "Lakhan Vaishnav",
 					message: comment,
@@ -1139,7 +1142,7 @@
 						alert('OOPS!! Something went Wrong.', error);
 					},
 				);;
-			}else{
+			} else {
 				alert("Please Fill All Fields");
 			}
 
@@ -1282,6 +1285,20 @@
 		//     })
 		// });
 	</script>
+	<script>
+		tinymce.init({
+		  selector: 'textarea',
+		  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+		  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+		  tinycomments_mode: 'embedded',
+		  tinycomments_author: 'Author name',
+		  mergetags_list: [
+			{ value: 'First.Name', title: 'First Name' },
+			{ value: 'Email', title: 'Email' },
+		  ],
+		  ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+		});
+	  </script>
 </body>
 
 </html>
