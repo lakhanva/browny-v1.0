@@ -253,6 +253,10 @@
 			height: 0px !important;
 		}
 	</style>
+	<script src="https://code.jquery.com/jquery-3.7.1.js"
+		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js">
+	</script>
 
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 	</script>
@@ -276,7 +280,7 @@
 	<header class="top-area">
 		<div class="header-area">
 			<nav class="navbar navbar-expand-custom navbar-mainbg">
-				<a class="navbar-brand navbar-logo" href="#">Lakhan</a>
+				<a class="navbar-brand navbar-logo" href="#">portfolio</a>
 				<button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent"
 					aria-expanded="false" aria-label="Toggle navigation">
 					<i class="fas fa-bars text-white"></i>
@@ -1044,7 +1048,7 @@
 										</div><!--/.col-->
 										<div class="col-sm-6 col-xs-12">
 											<div class="form-group">
-												<input type="email" class="form-control" id="email" placeholder="Email*"
+												<input type="text" class="form-control" id="email" placeholder="Email*"
 													name="email">
 											</div><!--/.form-group-->
 										</div><!--/.col-->
@@ -1091,17 +1095,17 @@
 									</div>
 									<div class="single-contact-add-info">
 										<h3>email</h3>
-										<p>lakhan@info.com</p>
+										<p>vaishnavboy8085@gmail.com</p>
 									</div>
 									<div class="single-contact-add-info">
 										<h3>website</h3>
-										<p>www.lakhan.com</p>
+										<p>https://lakhanva.github.io/lakhan/</p>
 									</div>
 								</div>
 							</div><!--/.contact-adress-->
 							<div class="hm-foot-icon">
 								<ul>
-									<li><a href="https://www.instagram.com/lakhan_vaishnav07?igsh=OGQ5ZDk2ZA=="><i
+									<li><a href="https://wa.me/+917597922522"><i
 												class="fa fa-whatsapp"></i></a></li><!--/li-->
 									<li><a href="https://www.instagram.com/lakhan_vaishnav07?igsh=OGQ5ZDk2ZA=="><i
 												class="fa fa-dribbble"></i></a></li><!--/li-->
@@ -1287,18 +1291,32 @@
 	</script>
 	<script>
 		tinymce.init({
-		  selector: 'textarea',
-		  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
-		  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-		  tinycomments_mode: 'embedded',
-		  tinycomments_author: 'Author name',
-		  mergetags_list: [
-			{ value: 'First.Name', title: 'First Name' },
-			{ value: 'Email', title: 'Email' },
-		  ],
-		  ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+			selector: 'textarea',
+			plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+			toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+			tinycomments_mode: 'embedded',
+			tinycomments_author: 'Author name',
+			mergetags_list: [
+				{ value: 'First.Name', title: 'First Name' },
+				{ value: 'Email', title: 'Email' },
+			],
+			ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
 		});
-	  </script>
+	</script>
+	<script>
+		$(document).ready(function () {
+
+			/* Mask for Geeks Name */
+			Inputmask("aaaaaaaaaaaaaaaa").mask('#name');
+
+
+
+			Inputmask("email").mask("#email");
+
+
+
+		});
+	</script>
 </body>
 
 </html>
