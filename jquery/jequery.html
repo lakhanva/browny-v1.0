@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic JS</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <center style="color:orange;">
+  </center>
+  <form action="formSubmit.php" method="post">
+    <input type="hidden" name="counter" id="counter" value="1" />
+    <table id="myTable">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="1">
+          <td><input type="text" name="firstName1" id="firstName1" /></td>
+          <td><input type="text" name="lastName1" id="lastName1" /></td>
+          <td><button type="button" id="addBtn1" value="addBtn">+</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <input type="submit" name="submitData" value="Submit">
+  </form>
+
+  <script>
+    $(document).ready(function () {
+      $("button[value='addBtn']").click(function (e) {
+        addRow();
+      });
+    });
+    function addRow() {
+      let c = Number($("#counter").val());
+      let b = c + 1;
+      let row = "<tr id='" + b + "'>";
+      row +=
+        '<td><input type="text" name="firstName' +
+        b +
+        '" id="firstName' +
+        b +
+        '"></td>';
+      row +=
+        '<td><input type="text" name="lastName' +
+        b +
+        '" id="lastName' +
+        b +
+        '"></td>';
+      row +=
+        '<td><button type="button" value="addBtn">+</button><button type="button" onclick="removeRow(' +
+        b +
+        ');">-</button></td>';
+      row += "</tr>";
+      $("#myTable tbody").append(row);
+      $("#counter").val(b);
+    }
+
+    function removeRow(rowId) {
+      $("tr#" + rowId).remove();
+    }
+  </script>
+</body>
+
+
+</html>
